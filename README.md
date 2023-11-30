@@ -66,3 +66,95 @@ A nimble explorer with the ability to run, jump, use a rope, and activate God mo
 
 ## 6. Conclusion
 "Treasure Quest" offers players an exciting and challenging adventure, combining platforming, puzzle-solving, and combat elements.
+# Enemy Folder Unity Scripts
+
+## Boulder.cs
+
+### Variables
+- **speed (float):** Public variable determining the boulder's speed. Marked with `[HideInInspector]` attribute.
+- **myBody (private Rigidbody2D):** Private variable holding the Rigidbody2D component.
+
+### Methods
+- **Awake():** Gets the Rigidbody2D component during script loading.
+- **Start():** Empty method called before the first frame update.
+- **FixedUpdate():** Sets horizontal velocity based on the speed variable.
+
+## snakespawner.cs
+
+### Variables
+- **snakereferences (array of GameObjects):** Represents different snake prefabs.
+- **spawnedsnake (GameObject):** Reference to the currently spawned snake.
+- **leftPos, rightPos (Transform):** Transform references for left and right spawn positions.
+- **randomIndex (int):** Index for randomly selecting a snake.
+- **randomSide (int):** Randomly determines left (0) or right (1) spawn.
+
+### Methods
+- **Start():** Initiates the `Spawnsnakes()` coroutine.
+- **Spawnsnakes():**
+  - Coroutine for continuous snake spawning with a 2-second delay.
+  - Randomly selects a snake, sets spawn side, and instantiates.
+  - Adjusts position, speed, and flips the snake if spawned on the right.
+
+## spear.cs
+
+### Introduction
+A Unity script for controlling the movement of a spear in a 2D game using `Rigidbody2D`.
+
+### Features
+- Basic spear movement functionality.
+- Adjustable speed through the Unity Inspector.
+
+### How to Use
+1. Attach the `spear` script to the GameObject representing your spear.
+2. Adjust the `speed` parameter in the Unity Inspector for movement speed.
+
+### Getting Started
+1. Clone or download the repository to your local machine.
+2. Open the Unity project containing your game.
+3. Drag and drop the `spear` script onto the GameObject representing your spear.
+4. Adjust the `speed` parameter in the Unity Inspector.
+5. Run your Unity game to see the spear in action.
+
+## Collisiondetect.cs
+
+### Features
+- Directional movement based on speed.
+- Collision handling for specified objects.
+- Trigger reflection on colliding with a "Wall."
+
+### Usage
+1. Attach `CollisionDetection.cs` to the GameObject.
+2. Ensure a `Rigidbody2D` component is attached.
+3. Adjust parameters in the Unity Editor.
+
+### Script Components
+- **CollisionDetection.cs:** Main script file for collision detection and movement.
+- **Dependencies:** Requires the Unity Engine.
+
+## manthrowing.cs
+
+### Features
+- Randomly selects and spawns snakes from left or right.
+- Dynamically adjusts snake speed based on the side.
+- Flips the snake when spawned on the right for realism.
+
+### Usage
+1. Attach to a GameObject in your Unity scene.
+2. Assign snake prefabs to the `snakereferences` array.
+3. Set left and right spawn positions using `leftPos` and `rightPos`.
+4. Adjust spawn interval in the `StartCoroutine` method.
+
+## snake.cs
+
+### Introduction
+A basic implementation of the classic Snake game using Unity.
+
+### Features
+- Responsive snake movement.
+- Adjustable speed for increased difficulty.
+- Rigidbody2D physics for smooth motion.
+### Code Explanation
+- Controls movement using Rigidbody2D.
+- Adjustable speed through the `speed` variable.
+- Initialization in `Awake`, movement in `FixedUpdate`.
+
